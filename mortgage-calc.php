@@ -4,7 +4,11 @@
 Plugin Name: Mortgage Calculator
 Plugin URI: https://mortgage-magic.co.uk/
 Description: This is a Mortgage Calculator for Mortgage Magic Clients
+<<<<<<< HEAD
 Version: 1.1
+=======
+Version: 1.0
+>>>>>>> origin/master
 Author: Sagar Roy
 Author URI: https://www.linkedin.com/in/sagar-roy-3445b5119/
 Text Domian: mortgage
@@ -14,9 +18,16 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit; // Exit if accessed directly
 }
 
+<<<<<<< HEAD
 
 
 
+=======
+//Define Paths
+
+define("PLUGIN_DIR_PATH", plugin_dir_path(__FILE__));
+define("PLUGIN_URL", plugins_url());
+>>>>>>> origin/master
 
 //Assets For Output
 
@@ -33,7 +44,11 @@ function morgage_custom_assets(){
 
     wp_enqueue_style(
         "mortgage_slider_css",
+<<<<<<< HEAD
         plugins_url('assets/css/rSlider.min.css', __FILE__ ),
+=======
+        PLUGIN_URL."/mortgage-calc/assets/css/rSlider.min.css", 
+>>>>>>> origin/master
         "mortgage_bootstrap"
     );
     
@@ -41,7 +56,11 @@ function morgage_custom_assets(){
 
     wp_enqueue_style(
         "mortgage_style",
+<<<<<<< HEAD
         plugins_url('style.css', __FILE__ ),
+=======
+        PLUGIN_URL."/mortgage-calc/style.css",
+>>>>>>> origin/master
         "[mortgage_bootstrap, mortgage_slider_css]"
     );
     
@@ -49,11 +68,71 @@ function morgage_custom_assets(){
 
     wp_enqueue_style(
         "mortgage_calc_responsive_style",
+<<<<<<< HEAD
         plugins_url('calc-responsive.css', __FILE__ ),
         "[mortgage_bootstrap, mortgage_slider_css, mortgage_style]"
     );
 
   
+=======
+        PLUGIN_URL."/mortgage-calc/calc-responsive.css" , 
+        "[mortgage_bootstrap, mortgage_slider_css, mortgage_style]"
+    );
+
+    // Jquery
+
+    
+    wp_enqueue_script(
+        "mortgage-jquery",
+        PLUGIN_URL."/mortgage-calc/assets/js/jquery-3.6.0.js", 
+        "",
+        null,
+        true
+        
+    );
+
+    //custom coded jquery
+
+    wp_enqueue_script(
+        "mortgage-calc-custom-jquery",
+        PLUGIN_URL."/mortgage-calc/mortgage-jquery.js", 
+        "mortgage-jquery",
+        null,
+        true
+        
+    );
+
+    //Slider js
+
+    wp_enqueue_script(
+        "mortgage-slider-js",
+        PLUGIN_URL."/mortgage-calc/assets/js/rSlider.min.js", 
+        "",
+        null,
+        true
+        
+    );
+
+    // Calculator JS
+
+    wp_enqueue_script(
+        "mortgage-calculator",
+        PLUGIN_URL."/mortgage-calc/calculator.js", 
+        "mortgage-slider-js",
+        null,
+        true
+        
+    );
+
+    wp_enqueue_script(
+        "mortgage-calc-js",
+        PLUGIN_URL."/mortgage-calc/mortgage.js", 
+        "[mortgage-jquery,mortgage-calc-custom-jquery]",
+        null,
+        true
+        
+    );
+>>>>>>> origin/master
 }
 
 
@@ -87,7 +166,11 @@ add_action("admin_menu", "mortgage_custom_menu");
 
 function mortgage_admin_view()
 {
+<<<<<<< HEAD
     include_once plugin_dir_path(__FILE__) ."/admin-view/admin-panel-output.php";
+=======
+    include_once PLUGIN_DIR_PATH."/admin-view/admin-panel-output.php";
+>>>>>>> origin/master
 }
 
 
@@ -142,6 +225,7 @@ endif;
 add_shortcode('buy_to_let', "mortgage_buy_to_let_shortcode");
 
 function mortgage_buy_to_let_shortcode(){
+<<<<<<< HEAD
 
 
       // Jquery
@@ -274,6 +358,18 @@ add_shortcode('mortgage', "mortgage_calc_shortcode");
 function mortgage_calc_shortcode(){
     ob_start();
     include_once plugin_dir_path(__FILE__)."/tamplets/mortgage.php";
+=======
+    ob_start();
+    include_once PLUGIN_DIR_PATH."/tamplets/buy-to-let.php";
+    return ob_get_clean();
+}
+
+add_shortcode('mortgage', "mortgage_calc_shortcode");
+
+function mortgage_calc_shortcode(){
+    ob_start();
+    include_once PLUGIN_DIR_PATH."/tamplets/mortgage.php";
+>>>>>>> origin/master
     return ob_get_clean();
 }
 
@@ -285,3 +381,11 @@ function mortgage_calc_shortcode(){
 
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+>>>>>>> origin/master

@@ -19,7 +19,10 @@ var propertyValueSlider = new rSlider({
     scale: false,
     labels: false,
     width: "470px",
+<<<<<<< HEAD
     set: [300000],
+=======
+>>>>>>> origin/master
     onChange: function (values) {
 
 
@@ -51,7 +54,10 @@ var rentalIncomeSlider = new rSlider({
     scale: false,
     labels: false,
     width: "468px",
+<<<<<<< HEAD
     set: [1500],
+=======
+>>>>>>> origin/master
     onChange: function (values) {
 
         document.getElementById("rentalIncomeValueOutput").value = values;
@@ -78,7 +84,10 @@ var depositSlider = new rSlider({
     scale: false,
     labels: false,
     width: "467px",
+<<<<<<< HEAD
     set: [100000],
+=======
+>>>>>>> origin/master
     onChange: function (values) {
 
 
@@ -104,7 +113,10 @@ var interestRateSlider = new rSlider({
     scale: false,
     labels: false,
     width: "467px",
+<<<<<<< HEAD
     set: [2.5],
+=======
+>>>>>>> origin/master
     onChange: function (values) {
 
 
